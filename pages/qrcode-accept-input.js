@@ -11,6 +11,7 @@ function App() {
   // generate QR code
   const generateQRCode = () => {
     setQRCodeText(inputText);
+    document.getElementById(generator).onClick = null 
   }
 
   // download QR code
@@ -38,15 +39,14 @@ function App() {
       <div className="qr-input">
         <input
           type="text"
-          placeholder="Enter input"
+          placeholder="Enter your phone and download QR code generated"
           value={inputText}
           onChange={e => setInputText(e.target.value)}
         />
-        <input
-          type="button"
-          value="Generate"
+        <button
+        id='generator'
           onClick={generateQRCode}
-        />
+        >Generate</button>
       </div>
       <QRCode
         id="qrCodeEl"
