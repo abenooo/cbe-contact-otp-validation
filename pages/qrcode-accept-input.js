@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import QRCode from 'qrcode.react';
+import router, { useRouter } from 'next/router';
 
 function App() {
 
   const [inputText, setInputText] = useState('');
   const [qrCodeText, setQRCodeText] = useState('');
+  const router = useRouter();
 
   // generate QR code
   const generateQRCode = () => {
@@ -23,6 +25,7 @@ function App() {
     document.body.appendChild(aEl);
     aEl.click();
     document.body.removeChild(aEl);
+    router.push("/");
   }
 
   return (
